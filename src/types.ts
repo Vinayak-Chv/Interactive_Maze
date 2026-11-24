@@ -1,5 +1,5 @@
 // src/types.ts
-export type Algorithm = "DFS" | "BFS" | "BIDIRECTIONAL_BFS";
+export type Algorithm = "DFS" | "BFS" | "ASTAR" | "DIJKSTRA" | "BIDIRECTIONAL_BFS";
 
 export type Position = { row: number; col: number };
 
@@ -15,20 +15,20 @@ export type Step =
       row: number;
       col: number;
       stack: Position[]; // copy after push
-      direction?: "forward" | "backward"; // new optional field
+      direction?: "forward" | "backward";
     }
   | {
       type: "POP";
       row: number;
       col: number;
       stack: Position[]; // copy after pop
-      direction?: "forward" | "backward"; // new optional field
+      direction?: "forward" | "backward";
     }
   | {
       type: "FOUND";
       row: number;
       col: number;
-      stack: Position[]; // final stack
+      stack: Position[]; // final path
     }
   | {
       type: "NO_PATH";
